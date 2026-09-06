@@ -244,6 +244,33 @@
         --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
         --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+
+        --nb-primary: {{ settings.nb_primary }};
+        --nb-primary-rgb: {{ settings.nb_primary.red }}, {{ settings.nb_primary.green }}, {{ settings.nb_primary.blue }};
+        --nb-background: {{ settings.nb_background }};
+        --nb-background-rgb: {{ settings.nb_background.red }}, {{ settings.nb_background.green }}, {{ settings.nb_background.blue }};
+        --nb-text: {{ settings.nb_text }};
+        --nb-text-rgb: {{ settings.nb_text.red }}, {{ settings.nb_text.green }}, {{ settings.nb_text.blue }};
+        --nb-radius: {{ settings.buttons_radius }}px;
+      }
+
+      :root,
+      .color-scheme-1,
+      .color-scheme-2,
+      .color-scheme-3,
+      .color-scheme-4,
+      .color-scheme-5 {
+        --color-button: {{ settings.nb_primary.red }}, {{ settings.nb_primary.green }}, {{ settings.nb_primary.blue }};
+      }
+
+      :root,
+      .color-scheme-1 {
+        --color-background: {{ settings.nb_background.red }}, {{ settings.nb_background.green }}, {{ settings.nb_background.blue }};
+        --color-foreground: {{ settings.nb_text.red }}, {{ settings.nb_text.green }}, {{ settings.nb_text.blue }};
+        --color-secondary-button: {{ settings.nb_background.red }}, {{ settings.nb_background.green }}, {{ settings.nb_background.blue }};
+        --color-secondary-button-text: {{ settings.nb_text.red }}, {{ settings.nb_text.green }}, {{ settings.nb_text.blue }};
+        --color-link: {{ settings.nb_primary.red }}, {{ settings.nb_primary.green }}, {{ settings.nb_primary.blue }};
+        --gradient-background: {{ settings.nb_background }};
       }
 
       *,
@@ -264,7 +291,7 @@
         min-height: 100%;
         margin: 0;
         font-size: 1.5rem;
-        letter-spacing: 0.06rem;
+        letter-spacing: 0.01em;
         line-height: calc(1 + 0.8 / var(--font-body-scale));
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
@@ -279,6 +306,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'naturabella.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}

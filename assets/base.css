@@ -3635,3 +3635,18 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* NaturaBella identity — radii and brand surfaces follow Theme Editor variables */
+.button,
+.button--secondary,
+.shopify-payment-button__button--unbranded {
+  border-radius: var(--nb-radius, var(--buttons-radius));
+}
+
+.card,
+.card__inner,
+.global-media-settings,
+.multicolumn-card,
+.content-container {
+  border-radius: var(--product-card-corner-radius, 1.6rem);
+}

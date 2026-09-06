@@ -6,43 +6,223 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Conoce tu piel. Ámala.",
             "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "El skincare inteligente empieza por conocerte. Descubre lo que tu piel necesita y arma una rutina que sí funciona.",
+            "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "Descubre tu rutina",
+            "button_link_1": "#routine-builder",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["heading", "text", "button"],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 12,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-left",
         "show_text_box": false,
         "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
         "show_text_below": false
+      }
+    },
+    "trust_bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "science": {
+          "type": "item",
+          "settings": {
+            "icon": "science",
+            "title": "Science backed"
+          }
+        },
+        "clean": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Clean ingredients"
+          }
+        },
+        "results": {
+          "type": "item",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Visible results"
+          }
+        },
+        "made": {
+          "type": "item",
+          "settings": {
+            "icon": "heart",
+            "title": "Made for you"
+          }
+        }
+      },
+      "block_order": ["science", "clean", "results", "made"],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "shop_by_concern": {
+      "type": "ingredient-library",
+      "blocks": {
+        "acne": {
+          "type": "item",
+          "settings": {
+            "icon": "bloom",
+            "title": "Acné",
+            "text": "Piel grasa y brotes"
+          }
+        },
+        "dry": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Sequedad",
+            "text": "Hidratación profunda"
+          }
+        },
+        "dull": {
+          "type": "item",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Opacidad",
+            "text": "Tono más luminoso"
+          }
+        },
+        "aging": {
+          "type": "item",
+          "settings": {
+            "icon": "molecule",
+            "title": "Envejecimiento",
+            "text": "Líneas y firmeza"
+          }
+        },
+        "sensitive": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Sensibilidad",
+            "text": "Calma y barrera"
+          }
+        }
+      },
+      "block_order": ["acne", "dry", "dull", "aging", "sensitive"],
+      "settings": {
+        "title": "Shop by concern",
+        "subtitle": "Elige el cuidado según lo que tu piel necesita hoy.",
+        "link_label": "Ver todas las colecciones",
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "ingredient_library": {
+      "type": "ingredient-library",
+      "blocks": {
+        "ha": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Ácido hialurónico",
+            "text": "Hidrata y rellena."
+          }
+        },
+        "nia": {
+          "type": "item",
+          "settings": {
+            "icon": "cream",
+            "title": "Niacinamida",
+            "text": "Unifica tono y poros."
+          }
+        },
+        "cer": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Ceramidas",
+            "text": "Fortalecen la barrera."
+          }
+        },
+        "ret": {
+          "type": "item",
+          "settings": {
+            "icon": "molecule",
+            "title": "Retinol",
+            "text": "Mejora textura y líneas."
+          }
+        },
+        "cica": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Centella asiática",
+            "text": "Calma y repara."
+          }
+        },
+        "pep": {
+          "type": "item",
+          "settings": {
+            "icon": "cream",
+            "title": "Péptidos",
+            "text": "Firmeza y colágeno."
+          }
+        }
+      },
+      "block_order": ["ha", "nia", "cer", "ret", "cica", "pep"],
+      "settings": {
+        "title": "Ingredient library",
+        "subtitle": "Explora los activos detrás de una piel radiante.",
+        "link_label": "Ver todos los ingredientes",
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "cat_1": { "type": "featured_collection", "settings": {} },
+        "cat_2": { "type": "featured_collection", "settings": {} },
+        "cat_3": { "type": "featured_collection", "settings": {} },
+        "cat_4": { "type": "featured_collection", "settings": {} },
+        "cat_5": { "type": "featured_collection", "settings": {} },
+        "cat_6": { "type": "featured_collection", "settings": {} }
+      },
+      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"],
+      "settings": {
+        "title": "Comprar por categoría",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 6,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Productos destacados",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -53,23 +233,49 @@
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
         "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
+        "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "routine_builder": {
+      "type": "routine-builder",
+      "blocks": {
+        "cleanse": { "type": "step", "settings": { "title": "Cleanse" } },
+        "treat": { "type": "step", "settings": { "title": "Treat" } },
+        "moisturize": { "type": "step", "settings": { "title": "Moisturize" } },
+        "protect": { "type": "step", "settings": { "title": "Protect" } }
+      },
+      "block_order": ["cleanse", "treat", "moisturize", "protect"],
+      "settings": {
+        "eyebrow": "Build your routine",
+        "title": "Crea una rutina personalizada en unos pasos.",
+        "text": "Elige tu objetivo, arma el orden y obtén una rutina visual de 4 pasos.",
+        "step_1": "Elige tus objetivos de piel",
+        "step_2": "Selecciona productos por paso",
+        "step_3": "Recibe tu rutina visual",
+        "button_label": "Empezar a construir",
+        "padding_top": 24,
+        "padding_bottom": 56
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "trust_bar",
+    "shop_by_concern",
+    "ingredient_library",
+    "collection_list",
+    "featured_collection",
+    "routine_builder"
   ]
 }

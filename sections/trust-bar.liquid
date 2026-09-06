@@ -1,0 +1,199 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nb-trust-bar section-{{ section.id }}-padding">
+  <div class="page-width">
+    <ul class="nb-trust-bar__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="nb-trust-bar__item" {{ block.shopify_attributes }}>
+          <span class="nb-trust-bar__icon" aria-hidden="true">
+            {%- case block.settings.icon -%}
+              {%- when 'science' -%}
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M12 4h8M14 4v7.2L8.4 26.2A3 3 0 0 0 11.2 30h9.6a3 3 0 0 0 2.8-3.8L18 11.2V4"/>
+                  <path d="M11 20h10"/>
+                </svg>
+              {%- when 'leaf' -%}
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M8 24c8-1 16-8 18-18-10 2-17 10-18 18Z"/>
+                  <path d="M8 24c4-4 9-8 16-10"/>
+                </svg>
+              {%- when 'sparkle' -%}
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M16 4v6M16 22v6M4 16h6M22 16h6M8.2 8.2l4.2 4.2M19.6 19.6l4.2 4.2M23.8 8.2l-4.2 4.2M12.4 19.6l-4.2 4.2"/>
+                  <circle cx="16" cy="16" r="3"/>
+                </svg>
+              {%- else -%}
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M16 27s-9-6.2-9-13a5.5 5.5 0 0 1 9-4.2A5.5 5.5 0 0 1 25 14c0 6.8-9 13-9 13Z"/>
+                </svg>
+            {%- endcase -%}
+          </span>
+          <p class="nb-trust-bar__label">{{ block.settings.title | escape }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .nb-trust-bar {
+    background: transparent;
+  }
+
+  .nb-trust-bar__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 1.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nb-trust-bar__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nb-trust-bar__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    display: grid;
+    place-items: center;
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+
+  .nb-trust-bar__icon svg {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .nb-trust-bar__label {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  @media screen and (min-width: 750px) {
+    .nb-trust-bar__list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Barra de confianza",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Indicador",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "options": [
+            { "value": "science", "label": "Ciencia" },
+            { "value": "leaf", "label": "Ingredientes" },
+            { "value": "sparkle", "label": "Resultados" },
+            { "value": "heart", "label": "Personalizado" }
+          ],
+          "default": "science"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Texto",
+          "default": "Science backed"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de confianza",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "science",
+            "title": "Science backed"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Clean ingredients"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Visible results"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "heart",
+            "title": "Made for you"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

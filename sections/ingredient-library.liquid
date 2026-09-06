@@ -1,0 +1,315 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nb-library section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.title != blank or section.settings.subtitle != blank or section.settings.link_label != blank -%}
+      <div class="nb-library__header">
+        <div>
+          {%- if section.settings.title != blank -%}
+            <h2 class="nb-library__title">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subtitle != blank -%}
+            <p class="nb-library__subtitle">{{ section.settings.subtitle | escape }}</p>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.link_label != blank -%}
+          <a class="nb-library__link" href="{{ section.settings.link | default: '#' }}">
+            {{ section.settings.link_label | escape }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="nb-library__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="nb-library__item" {{ block.shopify_attributes }}>
+          <div class="nb-library__icon">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 240
+                | image_tag: loading: 'lazy', widths: '120, 180, 240', alt: block.settings.title
+              }}
+            {%- else -%}
+              <span class="nb-library__fallback" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'drop' -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M24 6c0 0 12 14 12 22a12 12 0 1 1-24 0C12 20 24 6 24 6Z"/>
+                    </svg>
+                  {%- when 'leaf' -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 34c12-2 22-12 26-26-14 4-24 14-26 26Z"/>
+                      <path d="M12 34c6-6 14-12 24-15"/>
+                    </svg>
+                  {%- when 'sparkle' -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M24 8v8M24 32v8M8 24h8M32 24h8M14 14l6 6M28 28l6 6M34 14l-6 6M20 28l-6 6"/>
+                    </svg>
+                  {%- when 'molecule' -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <circle cx="16" cy="18" r="5"/>
+                      <circle cx="32" cy="14" r="4"/>
+                      <circle cx="28" cy="32" r="6"/>
+                      <path d="M20 20l8-4M20 22l6 8M32 18l-3 9"/>
+                    </svg>
+                  {%- when 'bloom' -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <circle cx="24" cy="24" r="4"/>
+                      <path d="M24 10c4 6 4 10 0 14-4-4-4-8 0-14ZM24 38c-4-6-4-10 0-14 4 4 4 8 0 14ZM10 24c6-4 10-4 14 0-4 4-8 4-14 0ZM38 24c-6 4-10 4-14 0 4-4 8-4 14 0Z"/>
+                    </svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <circle cx="24" cy="24" r="10"/>
+                      <circle cx="24" cy="24" r="4"/>
+                    </svg>
+                {%- endcase -%}
+              </span>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.title != blank -%}
+            <h3 class="nb-library__name">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="nb-library__text">{{ block.settings.text | escape }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .nb-library__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .nb-library__title {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-library__subtitle {
+    margin: 0;
+    max-width: 42rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.7);
+  }
+
+  .nb-library__link {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-library__link:hover {
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+
+  .nb-library__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.8rem 1.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nb-library__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nb-library__icon {
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--nb-primary, #a390e4) 16%, #ffffff);
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+
+  .nb-library__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .nb-library__fallback svg {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .nb-library__name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-library__text {
+    margin: 0;
+    font-size: 1.3rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.68);
+  }
+
+  @media screen and (min-width: 750px) {
+    .nb-library__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .nb-library__grid {
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    .nb-library__icon {
+      width: 11rem;
+      height: 11rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Biblioteca de iconos",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Ingredient library"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Explora los activos detrás de una piel radiante."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Texto del enlace",
+      "default": "Ver todos"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Enlace"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ítem",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen circular"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono (si no hay imagen)",
+          "options": [
+            { "value": "drop", "label": "Gota" },
+            { "value": "cream", "label": "Círculo" },
+            { "value": "leaf", "label": "Hoja" },
+            { "value": "sparkle", "label": "Brillo" },
+            { "value": "molecule", "label": "Molécula" },
+            { "value": "bloom", "label": "Flor" }
+          ],
+          "default": "drop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nombre",
+          "default": "Ácido hialurónico"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Beneficio",
+          "default": "Hidrata y rellena."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Biblioteca de iconos",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

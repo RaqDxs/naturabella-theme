@@ -1,0 +1,325 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nb-routine section-{{ section.id }}-padding" id="routine-builder">
+  <div class="page-width">
+    <div class="nb-routine__panel">
+      <div class="nb-routine__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="nb-routine__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="nb-routine__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <p class="nb-routine__text">{{ section.settings.text | escape }}</p>
+        {%- endif -%}
+
+        <ul class="nb-routine__checks" role="list">
+          {%- if section.settings.step_1 != blank -%}
+            <li>{{ section.settings.step_1 | escape }}</li>
+          {%- endif -%}
+          {%- if section.settings.step_2 != blank -%}
+            <li>{{ section.settings.step_2 | escape }}</li>
+          {%- endif -%}
+          {%- if section.settings.step_3 != blank -%}
+            <li>{{ section.settings.step_3 | escape }}</li>
+          {%- endif -%}
+        </ul>
+
+        {%- if section.settings.button_label != blank -%}
+          <a class="button nb-routine__button" href="{{ section.settings.button_link | default: '#' }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="nb-routine__flow" aria-hidden="true">
+        {%- for block in section.blocks -%}
+          {%- unless forloop.first -%}
+            <span class="nb-routine__plus">+</span>
+          {%- endunless -%}
+          <article class="nb-routine__step" {{ block.shopify_attributes }}>
+            <div class="nb-routine__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 400
+                  | image_tag: loading: 'lazy', widths: '200, 300, 400', alt: block.settings.title
+                }}
+              {%- else -%}
+                <span class="nb-routine__placeholder">{{ forloop.index }}</span>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.title != blank -%}
+              <p class="nb-routine__step-title">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .nb-routine__panel {
+    display: grid;
+    gap: 3.2rem;
+    padding: 3.2rem 2.4rem;
+    border-radius: 2.8rem;
+    background: color-mix(in srgb, var(--nb-primary, #a390e4) 18%, #ffffff);
+  }
+
+  .nb-routine__eyebrow,
+  .nb-routine__title {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-routine__title {
+    margin-top: 0.8rem;
+    font-size: 1.8rem;
+  }
+
+  .nb-routine__text {
+    margin: 1.2rem 0 0;
+    max-width: 36rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.72);
+  }
+
+  .nb-routine__checks {
+    margin: 2.4rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .nb-routine__checks li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+  }
+
+  .nb-routine__checks li::before {
+    content: '✓';
+    width: 1.8rem;
+    height: 1.8rem;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(var(--nb-primary-rgb, 163, 144, 228));
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .nb-routine__button {
+    margin-top: 2.4rem;
+    background-color: rgb(var(--nb-text-rgb, 45, 45, 45));
+    color: #fff;
+  }
+
+  .nb-routine__button:after {
+    box-shadow: none;
+  }
+
+  .nb-routine__flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem 1.2rem;
+  }
+
+  .nb-routine__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 11rem;
+  }
+
+  .nb-routine__media {
+    width: 12rem;
+    height: 14rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #fff;
+  }
+
+  .nb-routine__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .nb-routine__placeholder {
+    font-family: var(--font-heading-family);
+    font-size: 3.2rem;
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+
+  .nb-routine__step-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .nb-routine__plus {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  @media screen and (min-width: 990px) {
+    .nb-routine__panel {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+      align-items: center;
+      padding: 4.8rem 5.6rem;
+      gap: 4rem;
+    }
+
+    .nb-routine__flow {
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Constructor de rutina",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Etiqueta",
+      "default": "Build your routine"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Crea una rutina personalizada en unos pasos."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto",
+      "default": "Elige tu objetivo, arma el orden y obtén una rutina visual de 4 pasos."
+    },
+    {
+      "type": "text",
+      "id": "step_1",
+      "label": "Paso 1",
+      "default": "Elige tus objetivos de piel"
+    },
+    {
+      "type": "text",
+      "id": "step_2",
+      "label": "Paso 2",
+      "default": "Selecciona productos por paso"
+    },
+    {
+      "type": "text",
+      "id": "step_3",
+      "label": "Paso 3",
+      "default": "Recibe tu rutina visual"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Botón",
+      "default": "Empezar a construir"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso de rutina",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen del producto"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nombre del paso",
+          "default": "Cleanse"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Constructor de rutina",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Cleanse" } },
+        { "type": "step", "settings": { "title": "Treat" } },
+        { "type": "step", "settings": { "title": "Moisturize" } },
+        { "type": "step", "settings": { "title": "Protect" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

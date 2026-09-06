@@ -1,0 +1,130 @@
+/* NaturaBella — global identity, header and home polish
+   Primary color, background and text come from Theme Editor variables:
+   --nb-primary / --nb-background / --nb-text
+*/
+
+body {
+  letter-spacing: 0.01em;
+  background-color: var(--nb-background, #f8f8fa);
+  color: rgb(var(--nb-text-rgb, 45, 45, 45));
+}
+
+.button,
+.shopify-payment-button__button--unbranded,
+.shopify-challenge__button {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nb-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 0.2rem 0;
+}
+
+.nb-logo__name {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  text-transform: none;
+}
+
+.nb-logo__tag {
+  font-family: var(--font-body-family);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+}
+
+.header-wrapper {
+  background-color: rgb(var(--color-background));
+}
+
+.header__heading-link .h2 {
+  color: rgb(var(--nb-text-rgb, 45, 45, 45));
+}
+
+@media screen and (min-width: 990px) {
+  .header--middle-left:not(.drawer-menu) {
+    grid-template-areas: 'heading navigation icons';
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  .header--middle-left .header__heading,
+  .header--middle-left .header__heading-link {
+    justify-self: start;
+  }
+
+  .header--middle-left .header__inline-menu {
+    justify-self: center;
+    margin-left: 0;
+  }
+
+  .header--middle-left .header__icons {
+    justify-self: end;
+  }
+
+  .header__menu-item {
+    font-size: 1.15rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .header__menu-item:hover span {
+    text-decoration: none;
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+}
+
+.header__icon {
+  color: rgb(var(--nb-text-rgb, 45, 45, 45));
+}
+
+.cart-count-bubble {
+  background-color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  color: #fff;
+}
+
+#routine-builder {
+  scroll-margin-top: calc(var(--header-height, 8rem) + 1.2rem);
+}
+
+.banner__heading {
+  font-family: var(--font-heading-family);
+  letter-spacing: -0.03em;
+}
+
+.collection-list-title,
+.title-wrapper-with-link .title,
+.featured-collection .title {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.card--standard .card__inner {
+  background: color-mix(in srgb, var(--nb-primary, #a390e4) 12%, #ffffff);
+}
+
+@media screen and (max-width: 749px) {
+  .nb-logo__name {
+    font-size: 2rem;
+  }
+
+  .nb-logo__tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+  }
+}
