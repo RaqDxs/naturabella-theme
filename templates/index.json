@@ -31,7 +31,7 @@
       },
       "block_order": ["heading", "text", "button"],
       "settings": {
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "middle-left",
         "show_text_box": true,
@@ -129,7 +129,7 @@
       "settings": {
         "title": "Shop by concern",
         "subtitle": "Elige el cuidado según lo que tu piel necesita hoy.",
-        "link_label": "Ver todas las colecciones",
+        "link_label": "",
         "padding_top": 28,
         "padding_bottom": 12
       }
@@ -190,7 +190,7 @@
       "settings": {
         "title": "Ingredient library",
         "subtitle": "Explora los activos detrás de una piel radiante.",
-        "link_label": "Ver todos los ingredientes",
+        "link_label": "",
         "padding_top": 28,
         "padding_bottom": 36
       }
@@ -200,19 +200,16 @@
       "blocks": {
         "cat_1": { "type": "featured_collection", "settings": {} },
         "cat_2": { "type": "featured_collection", "settings": {} },
-        "cat_3": { "type": "featured_collection", "settings": {} },
-        "cat_4": { "type": "featured_collection", "settings": {} },
-        "cat_5": { "type": "featured_collection", "settings": {} },
-        "cat_6": { "type": "featured_collection", "settings": {} }
+        "cat_3": { "type": "featured_collection", "settings": {} }
       },
-      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"],
+      "block_order": ["cat_1", "cat_2", "cat_3"],
       "settings": {
         "title": "Comprar por categoría",
         "heading_size": "h2",
         "image_ratio": "square",
-        "columns_desktop": 6,
+        "columns_desktop": 3,
         "color_scheme": "scheme-1",
-        "show_view_all": true,
+        "show_view_all": false,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
