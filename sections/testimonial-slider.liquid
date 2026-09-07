@@ -28,14 +28,6 @@
     <div class="nb-reviews__scroller" role="list">
       {%- for block in section.blocks -%}
         <article class="nb-reviews__card" role="listitem" {{ block.shopify_attributes }}>
-          {%- assign case_product = collections.all.products[forloop.index0] -%}
-          {%- assign case_image = block.settings.product_image | default: case_product.featured_image -%}
-          {%- if case_image != blank -%}
-            <div class="nb-reviews__media">
-              {{ case_image | image_url: width: 560 | image_tag: loading: 'lazy', widths: '280, 420, 560', alt: block.settings.product_name }}
-            </div>
-          {%- endif -%}
-          <p class="nb-reviews__case-label">Caso de experiencia</p>
           <p class="nb-reviews__stars" aria-label="{{ block.settings.rating }} de 5">
             {%- for i in (1..5) -%}
               <span class="nb-reviews__star{% if i > block.settings.rating %} nb-reviews__star--empty{% endif %}" aria-hidden="true">★</span>
@@ -50,8 +42,15 @@
           {%- if block.settings.location != blank -%}
             <p class="nb-reviews__location">{{ block.settings.location | escape }}</p>
           {%- endif -%}
-          {%- if block.settings.product_name != blank -%}
+          {%- if block.settings.product_image != blank or block.settings.product_name != blank -%}
             <div class="nb-reviews__product">
+              {%- if block.settings.product_image != blank -%}
+                {{
+                  block.settings.product_image
+                  | image_url: width: 120
+                  | image_tag: loading: 'lazy', widths: '60, 90, 120', alt: block.settings.product_name
+                }}
+              {%- endif -%}
               {%- if block.settings.product_name != blank -%}
                 <span>{{ block.settings.product_name | escape }}</span>
               {%- endif -%}
@@ -72,7 +71,7 @@
   .nb-reviews__title {
     margin: 0 0 0.8rem;
     font-family: var(--font-heading-family);
-    font-size: calc(var(--font-heading-scale) * 2.5rem);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
     letter-spacing: -0.02em;
     color: rgb(var(--nb-text-rgb, 45, 45, 45));
   }
@@ -106,34 +105,12 @@
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    padding: 1.6rem;
+    gap: 1rem;
+    padding: 2.4rem;
     background: #fff;
     border: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.08);
     border-radius: var(--nb-radius, 1.6rem);
     box-shadow: 0 1.2rem 3.2rem rgba(45, 45, 45, 0.04);
-  }
-
-  .nb-reviews__media {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--nb-primary, #a390e4) 12%, #ffffff);
-  }
-
-  .nb-reviews__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .nb-reviews__case-label {
-    margin: 0.2rem 0 0;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
   }
 
   .nb-reviews__stars {
@@ -149,7 +126,7 @@
   .nb-reviews__quote {
     margin: 0;
     font-family: var(--font-heading-family);
-    font-size: 1.55rem;
+    font-size: 1.8rem;
     line-height: 1.45;
     color: rgb(var(--nb-text-rgb, 45, 45, 45));
   }
@@ -173,7 +150,7 @@
     align-items: center;
     gap: 1rem;
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 1.6rem;
     border-top: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.08);
     font-size: 1.2rem;
   }
@@ -195,7 +172,7 @@
 
 {% schema %}
 {
-  "name": "Casos de experiencia",
+  "name": "Testimonios",
   "tag": "section",
   "class": "section",
   "max_blocks": 8,
