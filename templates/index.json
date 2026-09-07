@@ -376,7 +376,7 @@
         "step_2": "Selecciona productos por paso",
         "step_3": "Recibe tu rutina visual",
         "button_label": "Empezar a construir",
-        "button_link": "",
+        "button_link": "shopify://collections/all",
         "padding_top": 24,
         "padding_bottom": 40
       }
