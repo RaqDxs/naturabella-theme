@@ -100,6 +100,46 @@
         "padding_bottom": 12
       }
     },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "cat_1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cuidado-corporal-y-cabello"
+          }
+        },
+        "cat_2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "cat_3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cuidado-facial"
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
+      "settings": {
+        "title": "Comprar por categoría",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "shop_by_concern": {
       "type": "ingredient-library",
       "blocks": {
@@ -151,46 +191,6 @@
         "padding_bottom": 12
       }
     },
-    "collection_list": {
-      "type": "collection-list",
-      "blocks": {
-        "cat_1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cuidado-corporal-y-cabello"
-          }
-        },
-        "cat_2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "cat_3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cuidado-facial"
-          }
-        }
-      },
-      "block_order": [
-        "cat_1",
-        "cat_2",
-        "cat_3"
-      ],
-      "settings": {
-        "title": "Comprar por categoría",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -217,52 +217,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "testimonial_slider": {
-      "type": "testimonial-slider",
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Mi piel quedó suave y nutrida. Se nota que es botánico de verdad, no un perfume disfrazado.",
-            "author": "María G.",
-            "location": "Lima",
-            "product_name": "Bálsamo de karité"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "El tinte de pigmentos frutales se ve natural y no reseca. Ya no vuelvo al maquillaje convencional.",
-            "author": "Andrea P.",
-            "location": "Arequipa",
-            "product_name": "Tinte de labios y mejillas"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "El shampoo de romero y menta dejó mi cabello liviano, sin siliconas y con un olor limpio.",
-            "author": "Lucía R.",
-            "location": "Cusco",
-            "product_name": "Cuidado capilar botánico"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
-      "settings": {
-        "title": "Lo que dicen nuestras clientas",
-        "subtitle": "Resultados reales con ingredientes botánicos.",
-        "padding_top": 36,
-        "padding_bottom": 20
       }
     },
     "ingredient_library": {
@@ -332,6 +286,52 @@
         "link": "",
         "padding_top": 28,
         "padding_bottom": 36
+      }
+    },
+    "testimonial_slider": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Mi piel quedó suave y nutrida. Se nota que es botánico de verdad, no un perfume disfrazado.",
+            "author": "María G.",
+            "location": "Lima",
+            "product_name": "Bálsamo de karité"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "El tinte de pigmentos frutales se ve natural y no reseca. Ya no vuelvo al maquillaje convencional.",
+            "author": "Andrea P.",
+            "location": "Arequipa",
+            "product_name": "Tinte de labios y mejillas"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "El shampoo de romero y menta dejó mi cabello liviano, sin siliconas y con un olor limpio.",
+            "author": "Lucía R.",
+            "location": "Cusco",
+            "product_name": "Cuidado capilar botánico"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "title": "Lo que dicen nuestras clientas",
+        "subtitle": "Resultados reales con ingredientes botánicos.",
+        "padding_top": 36,
+        "padding_bottom": 20
       }
     },
     "routine_builder": {
@@ -433,8 +433,8 @@
     "collection_list",
     "shop_by_concern",
     "featured_collection",
-    "testimonial_slider",
     "ingredient_library",
+    "testimonial_slider",
     "routine_builder",
     "faq_accordion"
   ]
