@@ -1,0 +1,191 @@
+{{ 'nb-pages.css' | asset_url | stylesheet_tag }}
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  if kicker == blank
+    assign kicker = 'ATENCIÓN NATURABELLA'
+  endif
+  if title == blank
+    assign title = page.title | default: 'Contacto'
+  endif
+  if subtitle == blank
+    assign subtitle = 'Contacto y soporte de compra'
+  endif
+  if lede == blank
+    assign lede = 'Si necesitas ayuda con tu pedido, despacho, pagos o cambios de datos, aquí tienes los canales de atención y el horario de respuesta.'
+  endif
+  if email_label == blank
+    assign email_label = 'Correo'
+  endif
+  if email == blank
+    assign email = 'contacto@naturabella.pe'
+  endif
+  if whatsapp_label == blank
+    assign whatsapp_label = 'WhatsApp'
+  endif
+  if whatsapp == blank
+    assign whatsapp = '+51 954 123 456'
+  endif
+  if whatsapp_link == blank
+    assign whatsapp_link = 'https://wa.me/51954123456'
+  endif
+  if hours_label == blank
+    assign hours_label = 'Horario'
+  endif
+  if hours == blank
+    assign hours = 'Lunes a sábado, 9:00 a. m. a 6:00 p. m.'
+  endif
+  if city == blank
+    assign city = 'Arequipa, Perú'
+  endif
+  if support_text == blank
+    assign support_text = 'Soporte post compra para seguimiento de envíos, pagos y cambios de datos.'
+  endif
+  if form_heading == blank
+    assign form_heading = 'Escríbenos'
+  endif
+-%}
+
+<div class="nb-page nb-contact">
+  <div class="page-width">
+    <div class="nb-contact__top">
+      <div class="nb-contact__intro">
+        {%- if kicker != blank -%}
+          <p class="nb-page__kicker">{{ kicker | escape }}</p>
+        {%- endif -%}
+        <h1 class="nb-page__title">{{ title | escape }}</h1>
+        {%- if subtitle != blank -%}
+          <p class="nb-contact__subtitle">{{ subtitle | escape }}</p>
+        {%- endif -%}
+        {%- if lede != blank -%}
+          <p class="nb-page__text nb-contact__lede">{{ lede | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="nb-contact__grid">
+      <dl class="nb-contact__channels">
+        <div class="nb-contact__item">
+          <dt>{{ email_label | escape }}</dt>
+          <dd>
+            <a href="mailto:{{ email | escape }}">{{ email | escape }}</a>
+          </dd>
+        </div>
+        <div class="nb-contact__item">
+          <dt>{{ whatsapp_label | escape }}</dt>
+          <dd>
+            <a href="{{ whatsapp_link }}" target="_blank" rel="noopener">{{ whatsapp | escape }}</a>
+          </dd>
+        </div>
+        <div class="nb-contact__item">
+          <dt>{{ hours_label | escape }}</dt>
+          <dd>{{ hours | escape }}</dd>
+        </div>
+      </dl>
+
+      <figure class="nb-contact__photo">
+        {% render 'nb-photo',
+          image: image,
+          fallback: 'nb-contact-studio.jpg',
+          alt: city,
+          img_class: 'nb-contact__img',
+          loading: 'eager',
+          sizes: '(min-width: 750px) 48vw, 100vw'
+        %}
+        <figcaption class="nb-contact__caption">
+          <strong>{{ city | escape }}</strong>
+          <p>{{ support_text | escape }}</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="nb-contact__form-wrap">
+      <div>
+        <h2 class="nb-page__heading">{{ form_heading | escape }}</h2>
+        <p class="nb-page__text">Cuéntanos tu consulta y te respondemos dentro del horario de atención.</p>
+      </div>
+
+      {%- liquid
+        assign contact_form_class = 'nb-contact__form isolate'
+        if settings.animations_reveal_on_scroll
+          assign contact_form_class = 'nb-contact__form isolate scroll-trigger animate--slide-in'
+        endif
+      -%}
+      {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+        {%- if form.posted_successfully? -%}
+          <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {{- 'icon-success.svg' | inline_asset_content -}}
+            {{ 'templates.contact.form.post_success' | t }}
+          </h2>
+        {%- elsif form.errors -%}
+          <div class="form__message">
+            <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+              {{- 'icon-error.svg' | inline_asset_content -}}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+          </div>
+        {%- endif -%}
+        <div class="contact__fields">
+          <div class="field">
+            <input
+              class="field__input"
+              autocomplete="name"
+              type="text"
+              id="ContactForm-name"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+            >
+            <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+          </div>
+          <div class="field field--with-error">
+            <input
+              autocomplete="email"
+              type="email"
+              id="ContactForm-email"
+              class="field__input"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+            >
+            <label class="field__label" for="ContactForm-email">
+              {{- 'templates.contact.form.email' | t }}
+              <span aria-hidden="true">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[{{ 'templates.contact.form.phone' | t }}]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.phone' | t }}"
+          >
+          <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+        </div>
+        <div class="field">
+          <textarea
+            rows="8"
+            id="ContactForm-body"
+            class="text-area field__input"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            placeholder="{{ 'templates.contact.form.comment' | t }}"
+          >{{- form.body -}}</textarea>
+          <label class="form__label field__label" for="ContactForm-body">
+            {{- 'templates.contact.form.comment' | t -}}
+          </label>
+        </div>
+        <div class="contact__button">
+          <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>

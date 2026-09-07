@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about": {
+      "type": "nb-about",
+      "settings": {
+        "kicker": "NATURABELLA",
+        "title": "Nosotros",
+        "lead": "Belleza que respeta tu piel y el planeta",
+        "intro": "NaturaBella es una tienda arequipeña de cosmética natural. Formulamos y seleccionamos productos libres de químicos agresivos, accesibles y de calidad para toda la familia.",
+        "slogan_label": "Nuestro slogan",
+        "slogan": "Belleza que respeta tu piel y el planeta.",
+        "who_label": "Quiénes somos",
+        "who_text": "Somos un emprendimiento arequipeño con 11 años cuidando la piel de nuestras clientas. Creemos en una belleza más honesta, botánica y cercana.",
+        "proposal_label": "Nuestra propuesta",
+        "proposal_text": "Seleccionamos cosmética de origen natural, con ingredientes como karité, coco, cera de abejas y pigmentos frutales, y te acompañamos con una atención cercana en cada compra.",
+        "mission_label": "Misión",
+        "mission_text": "Ofrecer cosmética libre de químicos agresivos, accesible y de calidad para toda la familia, respetando la piel y el planeta.",
+        "vision_label": "Visión",
+        "vision_text": "Ser la marca de belleza natural de referencia en Arequipa y el Perú, orgullosamente local y consciente.",
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "about"
+  ]
+}
