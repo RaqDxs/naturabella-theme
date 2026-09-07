@@ -1,0 +1,25 @@
+{% comment %}
+  Shopify image or theme asset fallback.
+  Accepts: image, fallback, alt, img_class, loading, sizes
+{% endcomment %}
+{%- if image != blank -%}
+  {{
+    image
+    | image_url: width: 1800
+    | image_tag:
+      loading: loading,
+      class: img_class,
+      alt: alt,
+      widths: '480, 720, 980, 1200, 1500, 1800',
+      sizes: sizes
+  }}
+{%- else -%}
+  <img
+    src="{{ fallback | asset_url }}"
+    alt="{{ alt | escape }}"
+    class="{{ img_class }}"
+    loading="{{ loading | default: 'lazy' }}"
+    width="1200"
+    height="1500"
+  >
+{%- endif -%}

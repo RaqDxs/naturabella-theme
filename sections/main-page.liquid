@@ -14,14 +14,31 @@
   }
 {%- endstyle -%}
 
-<div class="page-width page-width--narrow section-{{ section.id }}-padding">
-  <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ page.title | escape }}
-  </h1>
-  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {{ page.content }}
+{%- liquid
+  assign nb_about = false
+  assign nb_contact = false
+  if page.handle == 'nosotros' or page.handle == 'about' or page.handle == 'sobre-nosotros'
+    assign nb_about = true
+  endif
+  if page.handle == 'contacto' or page.handle == 'contact'
+    assign nb_contact = true
+  endif
+-%}
+
+{%- if nb_about and template.suffix != 'nosotros' -%}
+  {% render 'nb-about' %}
+{%- elsif nb_contact and template.suffix != 'contact' -%}
+  {% render 'nb-contact' %}
+{%- elsif nb_about == false and nb_contact == false -%}
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ page.title | escape }}
+    </h1>
+    <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {{ page.content }}
+    </div>
   </div>
-</div>
+{%- endif -%}
 
 {% schema %}
 {

@@ -1,0 +1,172 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  {% render 'nb-contact',
+    kicker: section.settings.kicker,
+    title: section.settings.title,
+    subtitle: section.settings.subtitle,
+    lede: section.settings.lede,
+    email_label: section.settings.email_label,
+    email: section.settings.email,
+    whatsapp_label: section.settings.whatsapp_label,
+    whatsapp: section.settings.whatsapp,
+    whatsapp_link: section.settings.whatsapp_link,
+    hours_label: section.settings.hours_label,
+    hours: section.settings.hours,
+    city: section.settings.city,
+    support_text: section.settings.support_text,
+    form_heading: section.settings.form_heading,
+    image: section.settings.image
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Contacto editorial",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Etiqueta",
+      "default": "ATENCIÓN NATURABELLA"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Contacto"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Contacto y soporte de compra"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Texto introductorio",
+      "default": "Si necesitas ayuda con tu pedido, despacho, pagos o cambios de datos, aquí tienes los canales de atención y el horario de respuesta."
+    },
+    {
+      "type": "header",
+      "content": "Canales"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Etiqueta correo",
+      "default": "Correo"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "contacto@naturabella.pe"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_label",
+      "label": "Etiqueta WhatsApp",
+      "default": "WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "default": "+51 954 123 456"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_link",
+      "label": "Enlace de WhatsApp",
+      "default": "https://wa.me/51954123456"
+    },
+    {
+      "type": "text",
+      "id": "hours_label",
+      "label": "Etiqueta horario",
+      "default": "Horario"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Horario",
+      "default": "Lunes a sábado, 9:00 a. m. a 6:00 p. m."
+    },
+    {
+      "type": "header",
+      "content": "Ubicación"
+    },
+    {
+      "type": "text",
+      "id": "city",
+      "label": "Ciudad",
+      "default": "Arequipa, Perú"
+    },
+    {
+      "type": "textarea",
+      "id": "support_text",
+      "label": "Soporte post compra",
+      "default": "Soporte post compra para seguimiento de envíos, pagos y cambios de datos."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Título del formulario",
+      "default": "Escríbenos"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contacto editorial"
+    }
+  ]
+}
+{% endschema %}
