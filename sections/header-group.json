@@ -62,7 +62,6 @@
     },
     "custom_liquid_RJLrJD": {
       "type": "custom-liquid",
-      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "",

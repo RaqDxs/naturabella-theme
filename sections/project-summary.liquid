@@ -1,0 +1,44 @@
+{%- style -%}
+  .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+  @media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+{%- endstyle -%}
+
+<section class="nb-project section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="nb-project__header">
+      <p class="nb-project__eyebrow">Gestión NaturaBella</p>
+      <h2 class="nb-project__title">Implementación y operación</h2>
+      <p class="nb-project__intro">Estimación académica del trabajo necesario para lanzar, promocionar y mantener la tienda.</p>
+    </div>
+    <div class="nb-project__table-wrap">
+      <table class="nb-project__table">
+        <thead><tr><th scope="col">Actividad</th><th scope="col">Horas</th><th scope="col">Inversión</th><th scope="col">Entregable</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Planificación y decisiones</th><td>4 h</td><td>S/ 40</td><td>Alcance y categorías</td></tr>
+          <tr><th scope="row">Configuración y desarrollo</th><td>12 h</td><td>S/ 180</td><td>Tema, catálogo y carrito</td></tr>
+          <tr><th scope="row">Contenido y casos de experiencia</th><td>8 h</td><td>S/ 120</td><td>Textos, imágenes y FAQ</td></tr>
+          <tr><th scope="row">Pruebas y lanzamiento</th><td>4 h</td><td>S/ 60</td><td>Compra y navegación validadas</td></tr>
+          <tr><th scope="row">Promoción y mantenimiento mensual</th><td>6 h/mes</td><td>S/ 80/mes</td><td>Campañas y mejoras</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row">Total de implementación</th><td>28 h</td><td>S/ 400</td><td>Entrega inicial</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .nb-project__header { max-width: 62rem; margin-bottom: 1.8rem; }
+  .nb-project__eyebrow { margin: 0 0 0.6rem; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--nb-primary-rgb, 163, 144, 228)); }
+  .nb-project__title { margin: 0; font-family: var(--font-heading-family); font-size: calc(var(--font-heading-scale) * 2.5rem); color: rgb(var(--nb-text-rgb, 45, 45, 45)); }
+  .nb-project__intro { margin: 0.6rem 0 0; color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.7); }
+  .nb-project__table-wrap { overflow-x: auto; border: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.1); border-radius: 1.2rem; background: #fff; }
+  .nb-project__table { width: 100%; min-width: 64rem; border-collapse: collapse; font-size: 1.25rem; }
+  .nb-project__table th, .nb-project__table td { padding: 1.15rem 1.4rem; text-align: left; border-bottom: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.08); }
+  .nb-project__table thead th { background: color-mix(in srgb, var(--nb-primary, #a390e4) 12%, #ffffff); font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nb-project__table tbody th { font-weight: 600; }
+  .nb-project__table tfoot th, .nb-project__table tfoot td { border-bottom: 0; font-weight: 700; color: rgb(var(--nb-primary-rgb, 163, 144, 228)); }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Resumen del proyecto", "tag": "section", "class": "section", "settings": [ { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Superior", "default": 28 }, { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Inferior", "default": 36 } ], "presets": [ { "name": "Resumen del proyecto" } ] }
+{% endschema %}

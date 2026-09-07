@@ -39,32 +39,16 @@
         </ul>
 
         {%- if section.settings.button_label != blank -%}
-          {%- liquid
-            assign routine_link = section.settings.button_link
-            if routine_link == blank
-              assign routine_link = routes.all_products_collection_url
-            endif
-          -%}
-          <a class="button nb-routine__button" href="{{ routine_link }}">
+          <a class="button nb-routine__button" href="{{ section.settings.button_link | default: '#' }}">
             {{ section.settings.button_label | escape }}
           </a>
         {%- endif -%}
       </div>
 
-      <div class="nb-routine__flow">
+      <div class="nb-routine__flow" aria-hidden="true">
         {%- for block in section.blocks -%}
-          {%- liquid
-            assign step_fallback = 'nb-routine-cleanse.jpg'
-            if forloop.index == 2
-              assign step_fallback = 'nb-routine-treat.jpg'
-            elsif forloop.index == 3
-              assign step_fallback = 'nb-routine-moisturize.jpg'
-            elsif forloop.index == 4
-              assign step_fallback = 'nb-routine-protect.jpg'
-            endif
-          -%}
           {%- unless forloop.first -%}
-            <span class="nb-routine__plus" aria-hidden="true">+</span>
+            <span class="nb-routine__plus">+</span>
           {%- endunless -%}
           <article class="nb-routine__step" {{ block.shopify_attributes }}>
             <div class="nb-routine__media">
@@ -75,13 +59,7 @@
                   | image_tag: loading: 'lazy', widths: '200, 300, 400', alt: block.settings.title
                 }}
               {%- else -%}
-                <img
-                  src="{{ step_fallback | asset_url }}"
-                  alt="{{ block.settings.title | escape }}"
-                  width="240"
-                  height="320"
-                  loading="lazy"
-                >
+                <span class="nb-routine__placeholder">{{ forloop.index }}</span>
               {%- endif -%}
             </div>
             {%- if block.settings.title != blank -%}
@@ -286,8 +264,7 @@
     {
       "type": "url",
       "id": "button_link",
-      "label": "Enlace del botón",
-      "info": "Si lo dejas vacío, el botón lleva al catálogo general."
+      "label": "Enlace del botón"
     },
     {
       "type": "header",
@@ -322,8 +299,7 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Imagen del producto",
-          "info": "Opcional. Si no eliges una, se muestra una ilustración del paso (limpiador, sérum, crema o protector)."
+          "label": "Imagen del producto"
         },
         {
           "type": "text",
