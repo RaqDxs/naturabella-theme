@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -29,17 +38,21 @@
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": true,
         "image_behavior": "none",
+        "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
+        "show_text_box": true,
         "color_scheme": "scheme-1",
-        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
         "show_text_below": false
       }
     },
@@ -75,7 +88,12 @@
           }
         }
       },
-      "block_order": ["natural", "cruelty", "eco", "clean"],
+      "block_order": [
+        "natural",
+        "cruelty",
+        "eco",
+        "clean"
+      ],
       "settings": {
         "padding_top": 36,
         "padding_bottom": 12
@@ -117,11 +135,17 @@
           }
         }
       },
-      "block_order": ["hydrate", "hair", "makeup", "sensitive"],
+      "block_order": [
+        "hydrate",
+        "hair",
+        "makeup",
+        "sensitive"
+      ],
       "settings": {
         "title": "Nuestras especialidades",
         "subtitle": "Belleza botánica para piel, cabello y color.",
         "link_label": "",
+        "link": "",
         "padding_top": 28,
         "padding_bottom": 12
       }
@@ -178,11 +202,19 @@
           }
         }
       },
-      "block_order": ["shea", "coconut", "beeswax", "soy", "fruit", "rosemary"],
+      "block_order": [
+        "shea",
+        "coconut",
+        "beeswax",
+        "soy",
+        "fruit",
+        "rosemary"
+      ],
       "settings": {
         "title": "Nuestros activos botánicos",
         "subtitle": "Ingredientes de origen natural detrás de cada fórmula.",
         "link_label": "",
+        "link": "",
         "padding_top": 28,
         "padding_bottom": 36
       }
@@ -190,11 +222,30 @@
     "collection_list": {
       "type": "collection-list",
       "blocks": {
-        "cat_1": { "type": "featured_collection", "settings": {} },
-        "cat_2": { "type": "featured_collection", "settings": {} },
-        "cat_3": { "type": "featured_collection", "settings": {} }
+        "cat_1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cuidado-corporal-y-cabello"
+          }
+        },
+        "cat_2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "cat_3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cuidado-facial"
+          }
+        }
       },
-      "block_order": ["cat_1", "cat_2", "cat_3"],
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
       "settings": {
         "title": "Comprar por categoría",
         "heading_size": "h2",
@@ -211,20 +262,19 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Productos destacados",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -232,29 +282,9 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "routine_builder": {
-      "type": "routine-builder",
-      "blocks": {
-        "cleanse": { "type": "step", "settings": { "title": "Cleanse" } },
-        "treat": { "type": "step", "settings": { "title": "Treat" } },
-        "moisturize": { "type": "step", "settings": { "title": "Moisturize" } },
-        "protect": { "type": "step", "settings": { "title": "Protect" } }
-      },
-      "block_order": ["cleanse", "treat", "moisturize", "protect"],
-      "settings": {
-        "eyebrow": "Build your routine",
-        "title": "Crea una rutina personalizada en unos pasos.",
-        "text": "Elige tu objetivo, arma el orden y obtén una rutina visual de 4 pasos.",
-        "step_1": "Elige tus objetivos de piel",
-        "step_2": "Selecciona productos por paso",
-        "step_3": "Recibe tu rutina visual",
-        "button_label": "Empezar a construir",
-        "padding_top": 24,
-        "padding_bottom": 40
       }
     },
     "testimonial_slider": {
@@ -291,12 +321,63 @@
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3"],
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
         "title": "Lo que dicen nuestras clientas",
         "subtitle": "Resultados reales con ingredientes botánicos.",
         "padding_top": 36,
         "padding_bottom": 20
+      }
+    },
+    "routine_builder": {
+      "type": "routine-builder",
+      "blocks": {
+        "cleanse": {
+          "type": "step",
+          "settings": {
+            "title": "Cleanse"
+          }
+        },
+        "treat": {
+          "type": "step",
+          "settings": {
+            "title": "Treat"
+          }
+        },
+        "moisturize": {
+          "type": "step",
+          "settings": {
+            "title": "Moisturize"
+          }
+        },
+        "protect": {
+          "type": "step",
+          "settings": {
+            "title": "Protect"
+          }
+        }
+      },
+      "block_order": [
+        "cleanse",
+        "treat",
+        "moisturize",
+        "protect"
+      ],
+      "settings": {
+        "eyebrow": "Build your routine",
+        "title": "Crea una rutina personalizada en unos pasos.",
+        "text": "Elige tu objetivo, arma el orden y obtén una rutina visual de 4 pasos.",
+        "step_1": "Elige tus objetivos de piel",
+        "step_2": "Selecciona productos por paso",
+        "step_3": "Recibe tu rutina visual",
+        "button_label": "Empezar a construir",
+        "button_link": "",
+        "padding_top": 24,
+        "padding_bottom": 40
       }
     },
     "faq_accordion": {
@@ -331,7 +412,12 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
       "settings": {
         "title": "Preguntas frecuentes",
         "subtitle": "Todo lo que necesitas saber sobre Naturabella.",
