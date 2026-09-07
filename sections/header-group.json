@@ -13,39 +13,33 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "settings": {
-        "color_scheme": "scheme-5",
-        "show_line_separator": false,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_marquee": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      },
       "blocks": {
         "msg_1": {
           "type": "announcement",
           "settings": {
-            "text": "✨ 100% Ingredientes naturales"
+            "text": "✨ 100% Ingredientes naturales",
+            "link": ""
           }
         },
         "msg_2": {
           "type": "announcement",
           "settings": {
-            "text": "✨ Libre de parabenos"
+            "text": "✨ Libre de parabenos",
+            "link": ""
           }
         },
         "msg_3": {
           "type": "announcement",
           "settings": {
-            "text": "✨ 11 años cuidando tu piel"
+            "text": "✨ 11 años cuidando tu piel",
+            "link": ""
           }
         },
         "msg_4": {
           "type": "announcement",
           "settings": {
-            "text": "✨ Envíos a todo el Perú"
+            "text": "✨ Envíos a todo el Perú",
+            "link": ""
           }
         }
       },
@@ -54,29 +48,44 @@
         "msg_2",
         "msg_3",
         "msg_4"
-      ]
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-5",
+        "enable_marquee": true,
+        "show_line_separator": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     },
     "header": {
       "type": "header",
       "settings": {
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
         "logo_position": "middle-left",
+        "mobile_logo_position": "left",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "always",
         "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
-        "mobile_logo_position": "left",
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "178874712101138520": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "178874712101138520"
   ]
 }
