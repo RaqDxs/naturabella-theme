@@ -46,36 +46,36 @@
     "trust_bar": {
       "type": "trust-bar",
       "blocks": {
-        "science": {
+        "natural": {
           "type": "item",
           "settings": {
-            "icon": "science",
-            "title": "Science backed"
+            "icon": "leaf",
+            "title": "100% Natural"
+          }
+        },
+        "cruelty": {
+          "type": "item",
+          "settings": {
+            "icon": "bunny",
+            "title": "Libre de crueldad"
+          }
+        },
+        "eco": {
+          "type": "item",
+          "settings": {
+            "icon": "earth",
+            "title": "Empaques eco-amigables"
           }
         },
         "clean": {
           "type": "item",
           "settings": {
-            "icon": "leaf",
-            "title": "Clean ingredients"
-          }
-        },
-        "results": {
-          "type": "item",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Visible results"
-          }
-        },
-        "made": {
-          "type": "item",
-          "settings": {
-            "icon": "heart",
-            "title": "Made for you"
+            "icon": "drop",
+            "title": "Libre de químicos agresivos"
           }
         }
       },
-      "block_order": ["science", "clean", "results", "made"],
+      "block_order": ["natural", "cruelty", "eco", "clean"],
       "settings": {
         "padding_top": 36,
         "padding_bottom": 12
@@ -84,51 +84,43 @@
     "shop_by_concern": {
       "type": "ingredient-library",
       "blocks": {
-        "acne": {
-          "type": "item",
-          "settings": {
-            "icon": "bloom",
-            "title": "Acné",
-            "text": "Piel grasa y brotes"
-          }
-        },
-        "dry": {
+        "hydrate": {
           "type": "item",
           "settings": {
             "icon": "drop",
-            "title": "Sequedad",
-            "text": "Hidratación profunda"
+            "title": "Hidratación profunda",
+            "text": "Piel suave y radiante"
           }
         },
-        "dull": {
+        "hair": {
           "type": "item",
           "settings": {
-            "icon": "sparkle",
-            "title": "Opacidad",
-            "text": "Tono más luminoso"
+            "icon": "leaf",
+            "title": "Cuidado capilar",
+            "text": "Fórmulas sin siliconas"
           }
         },
-        "aging": {
+        "makeup": {
           "type": "item",
           "settings": {
-            "icon": "molecule",
-            "title": "Envejecimiento",
-            "text": "Líneas y firmeza"
+            "icon": "bloom",
+            "title": "Maquillaje natural",
+            "text": "Pigmentos frutales y vegetales"
           }
         },
         "sensitive": {
           "type": "item",
           "settings": {
-            "icon": "leaf",
-            "title": "Sensibilidad",
-            "text": "Calma y barrera"
+            "icon": "sparkle",
+            "title": "Piel sensible",
+            "text": "Ingredientes calmantes"
           }
         }
       },
-      "block_order": ["acne", "dry", "dull", "aging", "sensitive"],
+      "block_order": ["hydrate", "hair", "makeup", "sensitive"],
       "settings": {
-        "title": "Shop by concern",
-        "subtitle": "Elige el cuidado según lo que tu piel necesita hoy.",
+        "title": "Nuestras especialidades",
+        "subtitle": "Belleza botánica para piel, cabello y color.",
         "link_label": "",
         "padding_top": 28,
         "padding_bottom": 12
@@ -137,59 +129,59 @@
     "ingredient_library": {
       "type": "ingredient-library",
       "blocks": {
-        "ha": {
-          "type": "item",
-          "settings": {
-            "icon": "drop",
-            "title": "Ácido hialurónico",
-            "text": "Hidrata y rellena."
-          }
-        },
-        "nia": {
+        "shea": {
           "type": "item",
           "settings": {
             "icon": "cream",
-            "title": "Niacinamida",
-            "text": "Unifica tono y poros."
+            "title": "Manteca de karité",
+            "text": "Nutrición intensa para piel seca."
           }
         },
-        "cer": {
+        "coconut": {
           "type": "item",
           "settings": {
             "icon": "drop",
-            "title": "Ceramidas",
-            "text": "Fortalecen la barrera."
+            "title": "Leche de coco",
+            "text": "Limpieza suave y brillo natural."
           }
         },
-        "ret": {
+        "beeswax": {
           "type": "item",
           "settings": {
-            "icon": "molecule",
-            "title": "Retinol",
-            "text": "Mejora textura y líneas."
+            "icon": "bloom",
+            "title": "Cera de abejas",
+            "text": "Protección y acabado perfecto."
           }
         },
-        "cica": {
+        "soy": {
           "type": "item",
           "settings": {
             "icon": "leaf",
-            "title": "Centella asiática",
-            "text": "Calma y repara."
+            "title": "Extracto de soya",
+            "text": "Unifica el tono y protege."
           }
         },
-        "pep": {
+        "fruit": {
           "type": "item",
           "settings": {
-            "icon": "cream",
-            "title": "Péptidos",
-            "text": "Firmeza y colágeno."
+            "icon": "sparkle",
+            "title": "Pigmentos frutales",
+            "text": "Color natural y antioxidantes."
+          }
+        },
+        "rosemary": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Romero y menta",
+            "text": "Frescura y equilibrio capilar."
           }
         }
       },
-      "block_order": ["ha", "nia", "cer", "ret", "cica", "pep"],
+      "block_order": ["shea", "coconut", "beeswax", "soy", "fruit", "rosemary"],
       "settings": {
-        "title": "Ingredient library",
-        "subtitle": "Explora los activos detrás de una piel radiante.",
+        "title": "Nuestros activos botánicos",
+        "subtitle": "Ingredientes de origen natural detrás de cada fórmula.",
         "link_label": "",
         "padding_top": 28,
         "padding_bottom": 36
