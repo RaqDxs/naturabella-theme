@@ -4,8 +4,34 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "about": {
+          "type": "text",
+          "settings": {
+            "heading": "Sobre NaturaBella",
+            "subtext": "<p>Belleza que respeta tu piel y el planeta. Cosmética libre de químicos agresivos, accesible y de calidad para toda la familia.</p><p>📍 Orgullosamente Arequipeña.</p>"
+          }
+        },
+        "support": {
+          "type": "text",
+          "settings": {
+            "heading": "Atención al cliente",
+            "subtext": "<p>Email: <a href=\"mailto:contacto@naturabella.pe\">contacto@naturabella.pe</a></p><p>WhatsApp: <a href=\"https://wa.me/51954123456\">+51 954 123 456</a></p>"
+          }
+        },
+        "benefits": {
+          "type": "text",
+          "settings": {
+            "heading": "Beneficios",
+            "subtext": "<p>✅ Envíos 24-48h en Arequipa</p><p>🎁 Envío gratis &gt; S/150</p><p>💳 Aceptamos Yape, Plin y Tarjetas</p>"
+          }
+        }
+      },
+      "block_order": [
+        "about",
+        "support",
+        "benefits"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -17,8 +43,8 @@
         "payment_enable": true,
         "show_policy": true,
         "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 56,
+        "padding_bottom": 40
       }
     }
   },
