@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Cambia solo el color primario para generar las 3 versiones del prototipo (lavanda, verde menta o rosa pastel). Botones, acentos e iconos del home siguen esta variable."
+        "content": "Hay 3 estilos en Cambiar estilo del tema: NaturaBella (lavanda, versión final), Menta y Rosa. Misma estructura, distinto color."
       },
       {
         "type": "color",
