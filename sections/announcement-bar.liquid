@@ -18,6 +18,35 @@
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
+{%- if section.settings.enable_marquee and section.blocks.size > 0 -%}
+  <div
+    class="nb-marquee color-{{ section.settings.color_scheme }} gradient"
+    role="region"
+    aria-label="{{ 'sections.header.announcement' | t }}"
+  >
+    <div class="nb-marquee__viewport">
+      <div class="nb-marquee__track">
+        {%- for i in (1..2) -%}
+          <p class="nb-marquee__group"{% if i == 2 %} aria-hidden="true"{% endif %}>
+            {%- for block in section.blocks -%}
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank and i == 1 -%}
+                  <a class="nb-marquee__item" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.text | escape }}
+                  </a>
+                {%- else -%}
+                  <span class="nb-marquee__item" {{ block.shopify_attributes }}>
+                    {{ block.settings.text | escape }}
+                  </span>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </p>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- else -%}
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
 >
@@ -161,6 +190,73 @@
     </div>
   </div>
 </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .nb-marquee {
+    overflow: hidden;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .nb-marquee__viewport {
+    overflow: hidden;
+  }
+
+  .nb-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: nb-marquee-scroll 28s linear infinite;
+  }
+
+  .nb-marquee:hover .nb-marquee__track {
+    animation-play-state: paused;
+  }
+
+  .nb-marquee__group {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.9rem 0;
+    white-space: nowrap;
+  }
+
+  .nb-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+  }
+
+  @keyframes nb-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-marquee__track {
+      animation: none;
+    }
+
+    .nb-marquee__group:last-child {
+      display: none;
+    }
+
+    .nb-marquee__group {
+      flex-wrap: wrap;
+      justify-content: center;
+      white-space: normal;
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -192,6 +288,13 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Cinta deslizante infinita",
+      "default": true,
+      "info": "El texto de los anuncios se mueve de derecha a izquierda en bucle."
     },  
     {
       "type": "checkbox",

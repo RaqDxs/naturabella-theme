@@ -254,6 +254,88 @@
         "step_3": "Recibe tu rutina visual",
         "button_label": "Empezar a construir",
         "padding_top": 24,
+        "padding_bottom": 40
+      }
+    },
+    "testimonial_slider": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Mi piel quedó suave y nutrida. Se nota que es botánico de verdad, no un perfume disfrazado.",
+            "author": "María G.",
+            "location": "Lima",
+            "product_name": "Bálsamo de karité"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "El tinte de pigmentos frutales se ve natural y no reseca. Ya no vuelvo al maquillaje convencional.",
+            "author": "Andrea P.",
+            "location": "Arequipa",
+            "product_name": "Tinte de labios y mejillas"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "El shampoo de romero y menta dejó mi cabello liviano, sin siliconas y con un olor limpio.",
+            "author": "Lucía R.",
+            "location": "Cusco",
+            "product_name": "Cuidado capilar botánico"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "title": "Lo que dicen nuestras clientas",
+        "subtitle": "Resultados reales con ingredientes botánicos.",
+        "padding_top": 36,
+        "padding_bottom": 20
+      }
+    },
+    "faq_accordion": {
+      "type": "faq-accordion",
+      "blocks": {
+        "faq_1": {
+          "type": "item",
+          "settings": {
+            "question": "¿Los productos son 100% naturales?",
+            "answer": "<p>Sí. Formulamos con ingredientes botánicos como karité, coco, soya y pigmentos frutales. Sin parabenos ni químicos agresivos.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "item",
+          "settings": {
+            "question": "¿Son cruelty-free?",
+            "answer": "<p>Sí. Naturabella no prueba en animales. Nuestras fórmulas y empaques siguen un estándar libre de crueldad.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "item",
+          "settings": {
+            "question": "¿Hacen envíos a todo el Perú?",
+            "answer": "<p>Sí. Enviamos a todo el país. El tiempo de entrega varía según la ciudad de destino.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "item",
+          "settings": {
+            "question": "¿Puedo usarlos si tengo piel sensible?",
+            "answer": "<p>Nuestras fórmulas están pensadas para piel sensible, con ingredientes calmantes y sin siliconas ni químicos agresivos.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4"],
+      "settings": {
+        "title": "Preguntas frecuentes",
+        "subtitle": "Todo lo que necesitas saber sobre Naturabella.",
+        "padding_top": 40,
         "padding_bottom": 56
       }
     }
@@ -265,6 +347,8 @@
     "ingredient_library",
     "collection_list",
     "featured_collection",
-    "routine_builder"
+    "testimonial_slider",
+    "routine_builder",
+    "faq_accordion"
   ]
 }

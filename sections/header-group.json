@@ -5,27 +5,46 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
+        "color_scheme": "scheme-5",
+        "show_line_separator": false,
         "show_social": false,
         "auto_rotate": false,
         "change_slides_speed": 5,
+        "enable_marquee": true,
         "enable_country_selector": false,
         "enable_language_selector": false
       },
       "blocks": {
-        "announcement-bar-0": {
+        "msg_1": {
           "type": "announcement",
           "settings": {
-            "text": "Ingredientes limpios · Resultados visibles · Hecho para tu piel",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
+            "text": "✨ 100% Ingredientes naturales"
+          }
+        },
+        "msg_2": {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ Libre de parabenos"
+          }
+        },
+        "msg_3": {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ 11 años cuidando tu piel"
+          }
+        },
+        "msg_4": {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ Envíos a todo el Perú"
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "msg_1",
+        "msg_2",
+        "msg_3",
+        "msg_4"
       ]
     },
     "header": {

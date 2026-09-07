@@ -36,6 +36,11 @@
     <ul class="nb-library__grid" role="list">
       {%- for block in section.blocks -%}
         <li class="nb-library__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="nb-library__card">
+          {%- else -%}
+            <div class="nb-library__card">
+          {%- endif -%}
           <div class="nb-library__icon">
             {%- if block.settings.image != blank -%}
               {{
@@ -85,6 +90,11 @@
           {%- endif -%}
           {%- if block.settings.text != blank -%}
             <p class="nb-library__text">{{ block.settings.text | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
           {%- endif -%}
         </li>
       {%- endfor -%}
@@ -145,7 +155,26 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .nb-library__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+  }
+
+  a.nb-library__card:hover .nb-library__icon {
+    transform: translateY(-0.4rem);
+    background: color-mix(in srgb, var(--nb-primary, #a390e4) 26%, #ffffff);
+  }
+
+  a.nb-library__card:hover .nb-library__name {
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
   }
 
   .nb-library__icon {
@@ -157,6 +186,7 @@
     place-items: center;
     background: color-mix(in srgb, var(--nb-primary, #a390e4) 16%, #ffffff);
     color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+    transition: transform 0.25s ease, background 0.25s ease;
   }
 
   .nb-library__icon img {
@@ -294,6 +324,12 @@
           "id": "text",
           "label": "Beneficio",
           "default": "Nutrición intensa para piel seca."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace a colección o página",
+          "info": "Deja vacío si el ítem es solo visual."
         }
       ]
     }

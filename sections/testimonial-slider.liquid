@@ -1,0 +1,277 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nb-reviews section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="nb-reviews__header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="nb-reviews__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="nb-reviews__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="nb-reviews__scroller" role="list">
+      {%- for block in section.blocks -%}
+        <article class="nb-reviews__card" role="listitem" {{ block.shopify_attributes }}>
+          <p class="nb-reviews__stars" aria-label="{{ block.settings.rating }} de 5">
+            {%- for i in (1..5) -%}
+              <span class="nb-reviews__star{% if i > block.settings.rating %} nb-reviews__star--empty{% endif %}" aria-hidden="true">★</span>
+            {%- endfor -%}
+          </p>
+          {%- if block.settings.quote != blank -%}
+            <p class="nb-reviews__quote">{{ block.settings.quote | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.author != blank -%}
+            <p class="nb-reviews__author">{{ block.settings.author | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.location != blank -%}
+            <p class="nb-reviews__location">{{ block.settings.location | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.product_image != blank or block.settings.product_name != blank -%}
+            <div class="nb-reviews__product">
+              {%- if block.settings.product_image != blank -%}
+                {{
+                  block.settings.product_image
+                  | image_url: width: 120
+                  | image_tag: loading: 'lazy', widths: '60, 90, 120', alt: block.settings.product_name
+                }}
+              {%- endif -%}
+              {%- if block.settings.product_name != blank -%}
+                <span>{{ block.settings.product_name | escape }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .nb-reviews__header {
+    margin-bottom: 2.8rem;
+    max-width: 54rem;
+  }
+
+  .nb-reviews__title {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-heading-family);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+    letter-spacing: -0.02em;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-reviews__subtitle {
+    margin: 0;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.7);
+  }
+
+  .nb-reviews__scroller {
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.5rem;
+    padding-bottom: 1.2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nb-reviews__scroller::-webkit-scrollbar {
+    height: 0.4rem;
+  }
+
+  .nb-reviews__scroller::-webkit-scrollbar-thumb {
+    background: rgb(var(--nb-primary-rgb, 163, 144, 228));
+    border-radius: 999px;
+  }
+
+  .nb-reviews__card {
+    flex: 0 0 min(82vw, 34rem);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2.4rem;
+    background: #fff;
+    border: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.08);
+    border-radius: var(--nb-radius, 1.6rem);
+    box-shadow: 0 1.2rem 3.2rem rgba(45, 45, 45, 0.04);
+  }
+
+  .nb-reviews__stars {
+    margin: 0;
+    letter-spacing: 0.12em;
+    color: #c9a227;
+  }
+
+  .nb-reviews__star--empty {
+    color: rgba(45, 45, 45, 0.18);
+  }
+
+  .nb-reviews__quote {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: 1.8rem;
+    line-height: 1.45;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-reviews__author {
+    margin: 1.2rem 0 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nb-reviews__location {
+    margin: 0;
+    font-size: 1.2rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.6);
+  }
+
+  .nb-reviews__product {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.6rem;
+    border-top: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.08);
+    font-size: 1.2rem;
+  }
+
+  .nb-reviews__product img {
+    width: 4.4rem;
+    height: 4.4rem;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--nb-primary, #a390e4) 12%, #ffffff);
+  }
+
+  @media screen and (min-width: 990px) {
+    .nb-reviews__card {
+      flex-basis: 32rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Testimonios",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Lo que dicen nuestras clientas"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Resultados reales con ingredientes botánicos."
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Estrellas"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Reseña",
+          "default": "Mi piel se siente nutrida y suave desde la primera semana. Se nota que es natural."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Nombre",
+          "default": "María G."
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Ciudad",
+          "default": "Lima"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Foto del producto"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Producto comprado",
+          "default": "Bálsamo de karité"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonios",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,215 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nb-faq section-{{ section.id }}-padding">
+  <div class="page-width nb-faq__layout">
+    <div class="nb-faq__intro">
+      {%- if section.settings.title != blank -%}
+        <h2 class="nb-faq__title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="nb-faq__subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="nb-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="nb-faq__item" {{ block.shopify_attributes }}>
+          <summary class="nb-faq__question">
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="nb-faq__icon" aria-hidden="true"></span>
+          </summary>
+          {%- if block.settings.answer != blank -%}
+            <div class="nb-faq__answer">
+              {{ block.settings.answer }}
+            </div>
+          {%- endif -%}
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .nb-faq__layout {
+    display: grid;
+    gap: 3.2rem;
+  }
+
+  .nb-faq__title {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading-family);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+    letter-spacing: -0.02em;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-faq__subtitle {
+    margin: 0;
+    max-width: 36rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.7);
+  }
+
+  .nb-faq__item {
+    border-bottom: 0.1rem solid rgba(var(--nb-text-rgb, 45, 45, 45), 0.12);
+  }
+
+  .nb-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding: 1.8rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgb(var(--nb-text-rgb, 45, 45, 45));
+  }
+
+  .nb-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .nb-faq__icon {
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    color: rgb(var(--nb-primary-rgb, 163, 144, 228));
+  }
+
+  .nb-faq__icon::before,
+  .nb-faq__icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nb-faq__icon::before {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 0.15rem;
+    transform: translateY(-50%);
+  }
+
+  .nb-faq__icon::after {
+    left: 50%;
+    top: 0;
+    width: 0.15rem;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .nb-faq__item[open] .nb-faq__icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+  }
+
+  .nb-faq__answer {
+    padding: 0 0 1.8rem;
+    color: rgba(var(--nb-text-rgb, 45, 45, 45), 0.75);
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 990px) {
+    .nb-faq__layout {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 6.4rem;
+      align-items: start;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Preguntas frecuentes",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Preguntas frecuentes"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Todo lo que necesitas saber sobre Naturabella."
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Superior",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Inferior",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Pregunta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pregunta",
+          "default": "¿Los productos son 100% naturales?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Respuesta",
+          "default": "<p>Sí. Formulamos con ingredientes botánicos y no usamos parabenos ni químicos agresivos.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preguntas frecuentes",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
