@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Descubre tu rutina",
-            "button_link_1": "#routine-builder",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -31,10 +31,10 @@
       },
       "block_order": ["heading", "text", "button"],
       "settings": {
-        "image_overlay_opacity": 12,
+        "image_overlay_opacity": 10,
         "image_height": "large",
         "desktop_content_position": "middle-left",
-        "show_text_box": false,
+        "show_text_box": true,
         "image_behavior": "none",
         "desktop_content_alignment": "left",
         "color_scheme": "scheme-1",
