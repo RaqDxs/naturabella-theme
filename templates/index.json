@@ -151,75 +151,6 @@
         "padding_bottom": 12
       }
     },
-    "ingredient_library": {
-      "type": "ingredient-library",
-      "blocks": {
-        "shea": {
-          "type": "item",
-          "settings": {
-            "icon": "cream",
-            "title": "Manteca de karité",
-            "text": "Nutrición intensa para piel seca."
-          }
-        },
-        "coconut": {
-          "type": "item",
-          "settings": {
-            "icon": "drop",
-            "title": "Leche de coco",
-            "text": "Limpieza suave y brillo natural."
-          }
-        },
-        "beeswax": {
-          "type": "item",
-          "settings": {
-            "icon": "bloom",
-            "title": "Cera de abejas",
-            "text": "Protección y acabado perfecto."
-          }
-        },
-        "soy": {
-          "type": "item",
-          "settings": {
-            "icon": "leaf",
-            "title": "Extracto de soya",
-            "text": "Unifica el tono y protege."
-          }
-        },
-        "fruit": {
-          "type": "item",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Pigmentos frutales",
-            "text": "Color natural y antioxidantes."
-          }
-        },
-        "rosemary": {
-          "type": "item",
-          "settings": {
-            "icon": "leaf",
-            "title": "Romero y menta",
-            "text": "Frescura y equilibrio capilar."
-          }
-        }
-      },
-      "block_order": [
-        "shea",
-        "coconut",
-        "beeswax",
-        "soy",
-        "fruit",
-        "rosemary"
-      ],
-      "settings": {
-        "title": "Nuestros activos botánicos",
-        "subtitle": "Ingredientes de origen natural detrás de cada fórmula.",
-        "link_label": "",
-        "link": "",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
     "collection_list": {
       "type": "collection-list",
       "blocks": {
@@ -334,6 +265,75 @@
         "padding_bottom": 20
       }
     },
+    "ingredient_library": {
+      "type": "ingredient-library",
+      "blocks": {
+        "shea": {
+          "type": "item",
+          "settings": {
+            "icon": "cream",
+            "title": "Manteca de karité",
+            "text": "Nutrición intensa para piel seca."
+          }
+        },
+        "coconut": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "Leche de coco",
+            "text": "Limpieza suave y brillo natural."
+          }
+        },
+        "beeswax": {
+          "type": "item",
+          "settings": {
+            "icon": "bloom",
+            "title": "Cera de abejas",
+            "text": "Protección y acabado perfecto."
+          }
+        },
+        "soy": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Extracto de soya",
+            "text": "Unifica el tono y protege."
+          }
+        },
+        "fruit": {
+          "type": "item",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Pigmentos frutales",
+            "text": "Color natural y antioxidantes."
+          }
+        },
+        "rosemary": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Romero y menta",
+            "text": "Frescura y equilibrio capilar."
+          }
+        }
+      },
+      "block_order": [
+        "shea",
+        "coconut",
+        "beeswax",
+        "soy",
+        "fruit",
+        "rosemary"
+      ],
+      "settings": {
+        "title": "Nuestros activos botánicos",
+        "subtitle": "Ingredientes de origen natural detrás de cada fórmula.",
+        "link_label": "",
+        "link": "",
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
     "routine_builder": {
       "type": "routine-builder",
       "blocks": {
@@ -430,11 +430,11 @@
   "order": [
     "image_banner",
     "trust_bar",
-    "shop_by_concern",
-    "ingredient_library",
     "collection_list",
+    "shop_by_concern",
     "featured_collection",
     "testimonial_slider",
+    "ingredient_library",
     "routine_builder",
     "faq_accordion"
   ]
