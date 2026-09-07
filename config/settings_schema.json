@@ -12,7 +12,19 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Hay 3 estilos en Cambiar estilo del tema: NaturaBella (lavanda, versión final), Menta y Rosa. Misma estructura, distinto color."
+        "content": "Hay 3 estilos en Cambiar estilo del tema: NaturaBella (lavanda, versión final), Menta (botánica, más seria) y Rosa (redondeada y romántica). Misma tienda, distinta personalidad."
+      },
+      {
+        "type": "select",
+        "id": "nb_variant",
+        "label": "Variante visual",
+        "info": "Se aplica al cambiar el estilo del tema. No lo cambies a mano si estás comparando presets.",
+        "options": [
+          { "value": "lavanda", "label": "Lavanda (final)" },
+          { "value": "menta", "label": "Menta" },
+          { "value": "rosa", "label": "Rosa" }
+        ],
+        "default": "lavanda"
       },
       {
         "type": "color",
