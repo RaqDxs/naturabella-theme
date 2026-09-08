@@ -1,0 +1,65 @@
+{%- if settings.nb_variant == 'menta' -%}
+  {{ 'nb-menta.css' | asset_url | stylesheet_tag }}
+
+  <div class="nb-menta-home">
+    <div class="nb-menta-home__intro page-width">
+      <div class="nb-menta-home__copy">
+        <p class="nb-menta-home__kicker">Apotheca · Arequipa</p>
+        <h2 class="nb-menta-home__title">De la tierra a tu piel.</h2>
+        <p class="nb-menta-home__text">
+          Naturabella en clave botánica: fórmulas con karité, coco, romero y pigmentos de origen vegetal.
+          Misma tienda, otra mirada — herbolario, no laboratorio lila.
+        </p>
+        <a class="button nb-menta-home__btn" href="{{ routes.all_products_collection_url }}">Ver el catálogo</a>
+      </div>
+      <figure class="nb-menta-home__portrait">
+        <img
+          src="{{ 'nb-menta-still.jpg' | asset_url }}"
+          alt="Activos botánicos Naturabella"
+          width="900"
+          height="1200"
+          loading="eager"
+        >
+      </figure>
+    </div>
+
+    <figure class="nb-menta-home__wide">
+      <img
+        src="{{ 'nb-menta-hero.jpg' | asset_url }}"
+        alt="Estudio botánico Naturabella"
+        width="1920"
+        height="1080"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="nb-menta-home__strip page-width">
+      <figure>
+        <img src="{{ 'nb-menta-leaves.jpg' | asset_url }}" alt="Hierbas y hojas" width="1200" height="900" loading="lazy">
+      </figure>
+      <div class="nb-menta-home__note">
+        <p class="nb-menta-home__kicker">Ingredientes</p>
+        <h3>Verde, mineral y vegetal.</h3>
+        <p>Romero, menta, karité y soya. Cosmética que se ve y se siente de jardín, no de vitrina pastel.</p>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Home Menta",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Solo se muestra cuando el estilo del tema es Menta. En Lavanda y Rosa queda oculto."
+    }
+  ],
+  "presets": [
+    { "name": "Home Menta" }
+  ]
+}
+{% endschema %}

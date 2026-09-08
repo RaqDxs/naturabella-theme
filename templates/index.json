@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "menta_home": {
+      "type": "nb-menta-home",
+      "settings": {}
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -428,6 +432,7 @@
     }
   },
   "order": [
+    "menta_home",
     "image_banner",
     "trust_bar",
     "collection_list",

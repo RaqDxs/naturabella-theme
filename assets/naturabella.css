@@ -9,6 +9,10 @@ body {
   color: rgb(var(--nb-text-rgb, 45, 45, 45));
 }
 
+body:not(.nb-variant-menta) #shopify-section-menta_home {
+  display: none;
+}
+
 .button,
 .shopify-payment-button__button--unbranded,
 .shopify-challenge__button {
@@ -236,65 +240,6 @@ body {
 
 .footer-block__details-content a:hover {
   text-decoration: underline;
-}
-
-/* ——— Menta: botánica, seria, ángulos vivos ——— */
-.nb-variant-menta .button,
-.nb-variant-menta .shopify-payment-button__button--unbranded {
-  letter-spacing: 0.04em;
-  text-transform: none;
-  border-radius: 0.4rem;
-}
-
-.nb-variant-menta .header__menu-item {
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-weight: 600;
-}
-
-.nb-variant-menta .nb-logo__name {
-  letter-spacing: 0;
-}
-
-.nb-variant-menta .nb-logo__tag {
-  letter-spacing: 0.18em;
-}
-
-.nb-variant-menta .collection-list-title,
-.nb-variant-menta .title-wrapper-with-link .title,
-.nb-variant-menta .featured-collection .title,
-.nb-variant-menta .footer-block__heading {
-  letter-spacing: 0.08em;
-  text-transform: none;
-}
-
-.nb-variant-menta .card--standard .card__inner {
-  background: #faf7f0;
-}
-
-.nb-variant-menta #Banner-image_banner::after {
-  background: linear-gradient(
-    90deg,
-    rgba(36, 51, 40, 0.62) 0%,
-    rgba(36, 51, 40, 0.22) 48%,
-    rgba(36, 51, 40, 0) 75%
-  );
-}
-
-.nb-variant-menta #Banner-image_banner .banner__buttons .button {
-  background: #3e6b52;
-  color: #f3efe4;
-  border-radius: 0.4rem;
-}
-
-.nb-variant-menta .nb-reviews,
-.nb-variant-menta .nb-routine__panel {
-  background: #e4ede6;
-}
-
-.nb-variant-menta .nb-reviews__card,
-.nb-variant-menta .nb-routine__media {
-  border-radius: 0.4rem;
 }
 
 /* ——— Rosa: romántica, suave, todo redondo ——— */

@@ -1,0 +1,248 @@
+/* Menta — herbolario. Solo se carga con el estilo Menta. */
+
+.nb-variant-menta {
+  --nb-forest: #243328;
+  --nb-leaf: #3e6b52;
+  --nb-paper: #f3efe4;
+  --nb-moss: #e4ede6;
+}
+
+.nb-variant-menta .header-wrapper {
+  background: var(--nb-forest);
+  color: var(--nb-paper);
+  border-bottom: 0;
+}
+
+.nb-variant-menta .nb-logo__name,
+.nb-variant-menta .header__heading-link .h2,
+.nb-variant-menta .header__menu-item,
+.nb-variant-menta .header__icon,
+.nb-variant-menta .header__icon .svg-wrapper {
+  color: var(--nb-paper);
+}
+
+.nb-variant-menta .nb-logo__tag {
+  color: #c5d9c8;
+}
+
+.nb-variant-menta .header__menu-item:hover span {
+  color: #c5d9c8;
+}
+
+.nb-variant-menta .utility-bar,
+.nb-variant-menta .nb-marquee,
+.nb-variant-menta .announcement-bar,
+.nb-variant-menta .announcement-bar-section {
+  background: #1a261e !important;
+  color: var(--nb-paper) !important;
+}
+
+.nb-variant-menta .cart-count-bubble {
+  background: var(--nb-paper);
+  color: var(--nb-forest);
+}
+
+.nb-variant-menta #shopify-section-image_banner {
+  display: none !important;
+}
+
+.nb-variant-menta #shopify-section-routine_builder {
+  display: none !important;
+}
+
+.nb-variant-menta .nb-menta-home {
+  background: var(--nb-paper);
+  color: var(--nb-forest);
+  padding-bottom: 4rem;
+}
+
+.nb-menta-home__intro {
+  display: grid;
+  gap: 3.2rem;
+  padding: 4.8rem 0 3.2rem;
+  align-items: center;
+}
+
+.nb-menta-home__kicker {
+  margin: 0 0 1.2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nb-leaf);
+}
+
+.nb-menta-home__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.6rem, 7vw, 7.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.nb-menta-home__text {
+  margin: 1.8rem 0 0;
+  max-width: 44rem;
+  font-size: 1.7rem;
+  line-height: 1.65;
+  color: rgba(36, 51, 40, 0.78);
+}
+
+.nb-menta-home__btn {
+  margin-top: 2.4rem;
+  background: var(--nb-leaf) !important;
+  color: var(--nb-paper) !important;
+  border-radius: 0.4rem !important;
+  text-transform: none !important;
+  letter-spacing: 0.04em !important;
+}
+
+.nb-menta-home__portrait {
+  margin: 0;
+  min-height: 42rem;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  background: var(--nb-moss);
+}
+
+.nb-menta-home__portrait img,
+.nb-menta-home__wide img,
+.nb-menta-home__strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nb-menta-home__wide {
+  margin: 0;
+  height: min(62vw, 52rem);
+  overflow: hidden;
+}
+
+.nb-menta-home__strip {
+  display: grid;
+  gap: 2.4rem;
+  padding: 4rem 0 2rem;
+  align-items: center;
+}
+
+.nb-menta-home__strip figure {
+  margin: 0;
+  min-height: 28rem;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+.nb-menta-home__note h3 {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+.nb-menta-home__note p {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.65;
+  color: rgba(36, 51, 40, 0.75);
+}
+
+@media screen and (min-width: 750px) {
+  .nb-menta-home__intro {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 6.4rem;
+    padding: 7.2rem 0 4.8rem;
+  }
+
+  .nb-menta-home__portrait {
+    min-height: 64rem;
+  }
+
+  .nb-menta-home__strip {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 6.4rem;
+    padding: 6.4rem 0 3.2rem;
+  }
+}
+
+.nb-variant-menta .footer {
+  background: var(--nb-forest);
+  color: var(--nb-paper);
+  border-top: 0;
+}
+
+.nb-variant-menta .footer * {
+  color: var(--nb-paper);
+}
+
+.nb-variant-menta .footer a {
+  color: #c5d9c8 !important;
+}
+
+.nb-variant-menta .card--standard .card__inner,
+.nb-variant-menta .card--card .card__inner {
+  background: var(--nb-moss);
+  border-radius: 0.4rem;
+}
+
+.nb-variant-menta .nb-reviews {
+  background: var(--nb-forest);
+}
+
+.nb-variant-menta .nb-reviews__title,
+.nb-variant-menta .nb-reviews__subtitle,
+.nb-variant-menta .nb-reviews__quote,
+.nb-variant-menta .nb-reviews__author,
+.nb-variant-menta .nb-reviews__location {
+  color: var(--nb-paper);
+}
+
+.nb-variant-menta .nb-reviews__subtitle,
+.nb-variant-menta .nb-reviews__location {
+  color: rgba(243, 239, 228, 0.7);
+}
+
+.nb-variant-menta .nb-reviews__card {
+  background: var(--nb-paper);
+  border: 0;
+  border-radius: 0.4rem;
+}
+
+.nb-variant-menta .nb-reviews__card .nb-reviews__quote,
+.nb-variant-menta .nb-reviews__card .nb-reviews__author {
+  color: var(--nb-forest);
+}
+
+.nb-variant-menta .nb-reviews__stars {
+  color: var(--nb-leaf);
+}
+
+.nb-variant-menta .nb-faq {
+  background: var(--nb-paper);
+}
+
+.nb-variant-menta .collection-list,
+.nb-variant-menta .isolate.gradient {
+  background: var(--nb-paper);
+}
+
+.nb-variant-menta .title-wrapper-with-link .title,
+.nb-variant-menta .collection-list-title,
+.nb-variant-menta .featured-collection .title,
+.nb-variant-menta .nb-library__title,
+.nb-variant-menta .nb-faq__title {
+  color: var(--nb-forest);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.4rem, 3.2vw, 3.6rem);
+}
+
+.nb-variant-menta .nb-library__card,
+.nb-variant-menta .nb-library__item {
+  border-radius: 0.4rem;
+}
+
+.nb-variant-menta .button {
+  background: var(--nb-leaf);
+  color: var(--nb-paper);
+}
