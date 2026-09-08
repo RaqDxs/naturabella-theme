@@ -1,0 +1,37 @@
+{%- if settings.nb_variant == 'rosa' -%}
+  <div class="nb-rosa">
+    <section class="nb-rosa-hero">
+      <img
+        class="nb-rosa-hero__img"
+        src="{{ 'nb-rosa-hero.jpg' | asset_url }}"
+        alt="Colección botánica Naturabella"
+        width="1920"
+        height="1080"
+        loading="eager"
+      >
+      <div class="nb-rosa-hero__copy">
+        <h2>Belleza que empieza en ti</h2>
+        <p>Cosmética botánica, suave y luminosa. Fórmulas para piel, cabello y color.</p>
+        <a class="nb-rosa-btn nb-rosa-btn--ghost" href="{{ routes.all_products_collection_url }}">Ver la colección</a>
+      </div>
+    </section>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Home Rosa",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Hero del estilo Rosa. En Lavanda y Menta queda oculto."
+    }
+  ],
+  "presets": [
+    { "name": "Home Rosa" }
+  ]
+}
+{% endschema %}

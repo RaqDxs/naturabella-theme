@@ -1,0 +1,400 @@
+/* Rosa — estética beauty pink editorial. Solo con el estilo Rosa. */
+
+.nb-variant-rosa {
+  --nb-blush: #f6d5dc;
+  --nb-rose: #e7a3b2;
+  --nb-dust: #d4899a;
+  --nb-ink: #4a3038;
+  --nb-cream: #fff5f7;
+  --nb-white: #ffffff;
+}
+
+.nb-variant-rosa,
+.nb-variant-rosa body {
+  background: var(--nb-white);
+  color: var(--nb-ink);
+}
+
+.nb-variant-rosa .header-wrapper {
+  background: var(--nb-white);
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.nb-variant-rosa .nb-logo {
+  gap: 0;
+}
+
+.nb-variant-rosa .nb-logo__name {
+  font-family: 'Great Vibes', 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.6rem;
+  letter-spacing: 0.02em;
+  color: var(--nb-ink);
+  text-transform: none;
+}
+
+.nb-variant-rosa .nb-logo__tag {
+  display: none;
+}
+
+.nb-variant-rosa .header__menu-item {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 1.4rem;
+  color: var(--nb-ink);
+}
+
+.nb-variant-rosa .header__icon,
+.nb-variant-rosa .header__icon .svg-wrapper {
+  color: var(--nb-ink);
+}
+
+.nb-variant-rosa .utility-bar,
+.nb-variant-rosa .nb-marquee,
+.nb-variant-rosa .announcement-bar,
+.nb-variant-rosa .announcement-bar-section {
+  background: var(--nb-rose) !important;
+  color: var(--nb-white) !important;
+}
+
+.nb-variant-rosa .cart-count-bubble {
+  background: var(--nb-dust);
+  color: var(--nb-white);
+}
+
+.nb-variant-rosa #shopify-section-image_banner,
+.nb-variant-rosa #shopify-section-trust_bar,
+.nb-variant-rosa #shopify-section-shop_by_concern,
+.nb-variant-rosa #shopify-section-ingredient_library,
+.nb-variant-rosa #shopify-section-testimonial_slider,
+.nb-variant-rosa #shopify-section-routine_builder,
+.nb-variant-rosa #shopify-section-collection_list {
+  display: none !important;
+}
+
+.nb-rosa-hero {
+  position: relative;
+  min-height: 64rem;
+  display: grid;
+  place-items: end center;
+  background: var(--nb-blush);
+  overflow: hidden;
+}
+
+.nb-rosa-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.nb-rosa-hero__copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 2rem 5.6rem;
+  color: var(--nb-ink);
+}
+
+.nb-rosa-hero__copy h2 {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  font-size: clamp(3.6rem, 6vw, 6.8rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.nb-rosa-hero__copy p {
+  margin: 1.2rem auto 0;
+  max-width: 44rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.nb-rosa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.2rem;
+  min-height: 4.8rem;
+  padding: 0 2.8rem;
+  border-radius: 999px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.nb-rosa-btn--ghost {
+  background: var(--nb-white);
+  color: var(--nb-dust);
+  border: 0.15rem solid var(--nb-dust);
+}
+
+.nb-rosa-btn--solid {
+  background: var(--nb-white);
+  color: var(--nb-dust);
+  border: 0;
+}
+
+.nb-rosa-kicker {
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nb-variant-rosa #shopify-section-featured_collection {
+  background: var(--nb-white);
+}
+
+.nb-variant-rosa #shopify-section-featured_collection .title {
+  font-size: 0 !important;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nb-variant-rosa #shopify-section-featured_collection .title::after {
+  content: 'Los más vendidos';
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  color: var(--nb-ink);
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.nb-variant-rosa #shopify-section-featured_collection .collection__view-all {
+  display: none;
+}
+
+.nb-variant-rosa #shopify-section-featured_collection .grid__item:nth-child(n + 5) {
+  display: none;
+}
+
+.nb-variant-rosa .card--standard .card__inner,
+.nb-variant-rosa .card--card .card__inner {
+  background: var(--nb-blush);
+  border-radius: 0;
+}
+
+.nb-variant-rosa .card__heading {
+  font-family: var(--font-heading-family);
+  font-size: 1.7rem;
+}
+
+.nb-variant-rosa .button,
+.nb-variant-rosa .quick-add__submit {
+  background: var(--nb-dust);
+  color: var(--nb-white);
+  border-radius: 0.35rem;
+  text-transform: none;
+  letter-spacing: 0.03em;
+  min-height: 4.2rem;
+}
+
+.nb-variant-rosa .quick-add__submit {
+  width: 100%;
+}
+
+.nb-rosa-sale {
+  display: grid;
+  background: #dba3af;
+  color: var(--nb-white);
+}
+
+.nb-rosa-sale__copy {
+  padding: 5.6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nb-rosa-sale__copy h3 {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+.nb-rosa-sale__copy p {
+  margin: 1.4rem 0 0;
+  max-width: 36rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.nb-rosa-sale__photo {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 3.2rem;
+}
+
+.nb-rosa-sale__photo img {
+  width: min(100%, 38rem);
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+}
+
+.nb-rosa-love {
+  display: grid;
+  gap: 3.2rem;
+  padding-top: 7.2rem;
+  padding-bottom: 7.2rem;
+  background: var(--nb-cream);
+  color: var(--nb-ink);
+}
+
+.nb-rosa-love h3 {
+  margin: 0 0 1.2rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  font-weight: 700;
+  color: var(--nb-ink);
+}
+
+.nb-rosa-stars {
+  margin: 0;
+  color: var(--nb-dust);
+  letter-spacing: 0.14em;
+  font-size: 1.8rem;
+}
+
+.nb-rosa-love blockquote {
+  margin: 1.4rem 0 0;
+  font-family: var(--font-heading-family);
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.45;
+  color: var(--nb-ink);
+}
+
+.nb-rosa-author {
+  margin: 1.2rem 0 0;
+  font-size: 1.3rem;
+  color: rgba(74, 48, 56, 0.7);
+}
+
+.nb-rosa-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.nb-rosa-social a {
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 0.1rem solid var(--nb-dust);
+  border-radius: 50%;
+  color: var(--nb-dust);
+}
+
+.nb-rosa-social svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.nb-rosa-love__aside {
+  display: grid;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.nb-rosa-love__aside img {
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1;
+  border-radius: 0.4rem;
+  object-fit: cover;
+  justify-self: end;
+}
+
+.nb-variant-rosa .footer {
+  background: var(--nb-white);
+  border-top: 0;
+  color: var(--nb-ink);
+}
+
+.nb-variant-rosa .footer__content-top {
+  padding-top: 4.8rem;
+  padding-bottom: 3.2rem;
+}
+
+.nb-variant-rosa .footer__content-bottom {
+  background: var(--nb-rose);
+  color: var(--nb-white);
+}
+
+.nb-variant-rosa .footer__content-bottom .copyright__content,
+.nb-variant-rosa .footer__content-bottom a,
+.nb-variant-rosa .footer__content-bottom small {
+  color: var(--nb-white);
+}
+
+.nb-variant-rosa .footer__localization,
+.nb-variant-rosa .footer__payment {
+  display: none;
+}
+
+.nb-variant-rosa .nb-faq,
+.nb-variant-rosa #shopify-section-faq_accordion {
+  background: var(--nb-white);
+}
+
+@media screen and (min-width: 750px) {
+  .nb-rosa-hero {
+    min-height: 74rem;
+  }
+
+  .nb-rosa-sale {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+  }
+
+  .nb-rosa-love {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 6.4rem;
+    align-items: center;
+  }
+
+  .nb-rosa-love__aside {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .nb-variant-rosa .header__inline-menu {
+    display: none !important;
+  }
+
+  .nb-variant-rosa header-drawer {
+    display: block;
+    position: relative;
+    justify-self: end;
+    margin-left: 0.8rem;
+    grid-area: icons;
+  }
+
+  .nb-variant-rosa .header--middle-left {
+    grid-template-areas: 'heading icons';
+    grid-template-columns: 1fr auto;
+  }
+
+  .nb-variant-rosa .header__icons {
+    padding-right: 4.8rem;
+  }
+}

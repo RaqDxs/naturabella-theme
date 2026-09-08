@@ -1,0 +1,80 @@
+{%- if settings.nb_variant == 'rosa' -%}
+  <div class="nb-rosa">
+    <section class="nb-rosa-sale">
+      <div class="nb-rosa-sale__copy">
+        <p class="nb-rosa-kicker">Campaña de primavera</p>
+        <h3>Hasta 40% OFF</h3>
+        <p>Fórmulas frescas, empaques suaves y atención arequipeña para tu ritual diario.</p>
+        <a class="nb-rosa-btn nb-rosa-btn--solid" href="{{ routes.all_products_collection_url }}">Comprar ahora</a>
+      </div>
+      <figure class="nb-rosa-sale__photo">
+        <img
+          src="{{ 'nb-rosa-sale.jpg' | asset_url }}"
+          alt="Ritual de belleza rosa"
+          width="800"
+          height="800"
+          loading="lazy"
+        >
+      </figure>
+    </section>
+
+    <section class="nb-rosa-love page-width">
+      <div>
+        <h3>Amada por miles</h3>
+        <p class="nb-rosa-stars" aria-label="5 de 5">★★★★★</p>
+        <blockquote>
+          “Mi piel quedó suave y nutrida. Se nota que es botánico de verdad.”
+        </blockquote>
+        <p class="nb-rosa-author">María G. · Lima</p>
+        <ul class="nb-rosa-social" aria-label="Redes">
+          <li>
+            <a href="https://www.instagram.com/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5.2A3.8 3.8 0 1 0 15.8 12 3.8 3.8 0 0 0 12 8.2zm6.1-.9a.9.9 0 1 0 .9.9.9.9 0 0 0-.9-.9zM12 9.6A2.4 2.4 0 1 1 9.6 12 2.4 2.4 0 0 1 12 9.6z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.8c0-.7.5-1 1.2-1H17V3h-2.3C12 3 11 4.6 11 6.6v1.9H9v2.7h2V21h3.2v-9.8h2.2l.4-2.7h-2.6z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.pinterest.com/" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.3 17.4c-.1-.7-.2-1.8 0-2.6l2-8.3s-.5-1-.5-2.4c0-2.2 1.3-3.9 2.9-3.9 1.4 0 2 1 2 2.3 0 1.4-.9 3.5-1.3 5.4-.4 1.6.8 2.9 2.4 2.9 2.9 0 4.8-3.7 4.8-8.1 0-3.3-2.2-5.8-6.2-5.8A6.5 6.5 0 0 0 6.4 11c0 1.5.7 3.1 1.6 4 .2.2.2.3.1.6l-.6 2.4c-.1.4-.3.5-.7.3-2.6-1.1-3.8-4-3.8-7.3A9.6 9.6 0 0 1 12 3z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="nb-rosa-love__aside">
+        <div>
+          <h3>¿Lista para brillar como nunca?</h3>
+          <p>Descubre hidratación, color vegetal y cuidado capilar en un solo catálogo.</p>
+        </div>
+        <img
+          src="{{ 'nb-rosa-lotus.jpg' | asset_url }}"
+          alt="Flor rosa"
+          width="480"
+          height="480"
+          loading="lazy"
+        >
+      </div>
+    </section>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Promo Rosa",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Banner de campaña y prueba social. Solo con el estilo Rosa."
+    }
+  ],
+  "presets": [
+    { "name": "Promo Rosa" }
+  ]
+}
+{% endschema %}

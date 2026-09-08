@@ -9,8 +9,14 @@ body {
   color: rgb(var(--nb-text-rgb, 45, 45, 45));
 }
 
-body:not(.nb-variant-menta) #shopify-section-menta_home {
+body:not(.nb-variant-menta) #shopify-section-menta_home,
+body:not(.nb-variant-rosa) #shopify-section-rosa_home,
+body:not(.nb-variant-rosa) #shopify-section-rosa_promo {
   display: none;
+}
+
+body:not(.nb-variant-rosa) #shopify-section-featured_collection .quick-add {
+  display: none !important;
 }
 
 .button,
@@ -240,55 +246,4 @@ body:not(.nb-variant-menta) #shopify-section-menta_home {
 
 .footer-block__details-content a:hover {
   text-decoration: underline;
-}
-
-/* ——— Rosa: romántica, suave, todo redondo ——— */
-.nb-variant-rosa .button,
-.nb-variant-rosa .shopify-payment-button__button--unbranded {
-  letter-spacing: 0.12em;
-  border-radius: 4rem;
-}
-
-.nb-variant-rosa .header__menu-item {
-  letter-spacing: 0.2em;
-}
-
-.nb-variant-rosa .nb-logo__name {
-  letter-spacing: 0.04em;
-}
-
-.nb-variant-rosa .card--standard .card__inner {
-  background: color-mix(in srgb, #e89aab 14%, #ffffff);
-}
-
-.nb-variant-rosa #Banner-image_banner::after {
-  background: linear-gradient(
-    90deg,
-    rgba(58, 42, 46, 0.5) 0%,
-    rgba(232, 154, 171, 0.18) 50%,
-    rgba(255, 244, 246, 0) 78%
-  );
-}
-
-.nb-variant-rosa #Banner-image_banner .banner__buttons .button {
-  background: #e89aab;
-  color: #fff;
-  border-radius: 4rem;
-}
-
-.nb-variant-rosa .nb-reviews {
-  background: #fde6ec;
-}
-
-.nb-variant-rosa .nb-reviews__card,
-.nb-variant-rosa .nb-routine__panel,
-.nb-variant-rosa .nb-routine__media,
-.nb-variant-rosa .nb-about__portrait,
-.nb-variant-rosa .nb-about__frame,
-.nb-variant-rosa .nb-contact__photo {
-  border-radius: 2.8rem;
-}
-
-.nb-variant-rosa .nb-routine__panel {
-  background: color-mix(in srgb, #e89aab 16%, #ffffff);
 }
